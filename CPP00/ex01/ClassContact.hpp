@@ -1,9 +1,13 @@
-#ifndef CLASS_CONTACT
-# define CLASS_CONTACT
+#ifndef __CLASS_CONTACT_H__
+# define __CLASS_CONTACT_H__
 
 #include <iostream>
 #include <string>
 #include <iomanip>
+
+// ************************************************************************** //
+//                               Contact Class                                //
+// ************************************************************************** //
 
 class Contact {
 
@@ -23,4 +27,4 @@ public:
 	std::string darkest_secret;
 };
 
-#endif
+#endif /* __CLASS_CONTACT_H__ */

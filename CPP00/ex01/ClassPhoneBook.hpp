@@ -1,10 +1,14 @@
-#ifndef CLASS_PHONEBOOK
-# define CLASS_PHONEBOOK
+#ifndef __CLASS_PHONEBOOK_H__
+# define __CLASS_PHONEBOOK_H__
 
 #include "ClassContact.hpp"
 #include <iostream>
 #include <string>
-#include "colors.h"
+#include "colors.hpp"
+
+// ************************************************************************** //
+//                             PhoneBook Class                                //
+// ************************************************************************** //
 
 class PhoneBook {
 
@@ -14,13 +18,15 @@ public:
 	~PhoneBook(void);
 
 	void	Add(void);
-	void	Display(void);
 	void	Search(void);
 
-	Contact	Contacts[8];
-
 private:
-	int		count;
+
+	int		_count;
+	Contact	_Contacts[8];
+
+	void	_Display(void);
+
 };
 
-#endif
+#endif /* __CLASS_PHONEBOOK_H__ */

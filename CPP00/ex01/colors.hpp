@@ -1,5 +1,5 @@
-#ifndef COLORS
-# define COLORS
+#ifndef __COLORS_H__
+# define __COLORS_H__
 
 #define BLACK "\033[0;30m"
 #define RED "\033[0;31m"
@@ -10,4 +10,4 @@
 #define CYAN "\033[1;36m"
 #define WHITE "\033[0;37m"
 
-#endif
+#endif /* __COLORS_H__ */

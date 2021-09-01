@@ -1,6 +1,7 @@
 #include "ClassPhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
+	this->_count = 0;
 	return;
 }
 
@@ -65,7 +66,7 @@ void	PhoneBook::Search(void) {
 	this->_Display();
 	std::cout << "Enter an index: ";
 	std::cin >> index;
-	while (std::cin.fail() || index < 0 || index > this->_count)
+	while (std::cin.fail() || index < 0 || index >= this->_count)
 	{
 		std::cout << RED << "Index must be an integer between a 0 and " << this->_count - 1 << WHITE << std::endl;
 		std::cout << "Enter an index: ";

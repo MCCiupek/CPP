@@ -8,8 +8,9 @@ DIR_HEADERS =	./
 
 DIR_SRCS =		./
 
-SRC =			main.cpp \
-				Karen.cpp
+SRC =			Karen.cpp \
+				main.cpp
+				
 
 SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
 

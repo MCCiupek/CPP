@@ -4,10 +4,6 @@
 # include <iostream>
 # include <string>
 
-// ************************************************************************** //
-//                                  Messages                                  //
-// ************************************************************************** //
-
 # define NUM_OPT 4
 
 enum OPTIONS { DEBUG, INFO, WARNING, ERROR };
@@ -18,27 +14,22 @@ enum OPTIONS { DEBUG, INFO, WARNING, ERROR };
 
 class Karen {
 
-public:
+	private:
 
-	Karen( void );
-	~Karen( void );
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
 
-	void complain( std::string level );
+		void (Karen::*f[NUM_OPT])( void );
 
-private:
+	public:
 
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
+		Karen( void );
+		~Karen( void );
 
-	void (Karen::*f[NUM_OPT])( void );
-	
-	/*struct fptr
-	{
-		std::string key;
-		void	(Karen::* f)( void );
-	};*/
+		void complain( std::string level );
+		
 };
 
 #endif /* __KAREN_H__ */

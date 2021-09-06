@@ -49,18 +49,23 @@ int exec( int n ) {
 
 int main( int ac, char *av[] ) {
 
-	if (ac != 2)
+	if (ac != 2) {
+		std::cout << "Error: Missing log level" << std::endl;
 		return (1);
+	}
 	switch (getInstruction(av[1])) {
 		case DEBUG :
 			exec(0);
 			break ;
 		case INFO :
 			exec(1);
+			break ;
 		case WARNING :
 			exec(2);
+			break ;
 		case ERROR :
 			exec(3);
+			break ;
 		default :
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}

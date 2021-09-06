@@ -30,23 +30,39 @@ std::string check_str( std::string str ) {
 	}
 	return str;
 }
-/*
-std::ifstream check_infile( std::string filename ) {
 
-	std::ifstream	ifs(filename);
+void	print_whitespaces(std::ifstream& ifs, std::ofstream& ofs) {
+	
+	char		ws = 0;
 
-	if (!ifs.is_open()) {
-		std::cout << "Error: could not open input file." << std::endl;
-		return ifs;
+	ifs.get(ws);
+	while (std::isspace(ws)) {
+		if (ifs.eof())
+			break;
+		ofs << ws;
+		ifs.get(ws);
 	}
-	return ifs;
-}*/
+	ifs.putback(ws);
+}
+
+void	sed(std::ifstream& ifs, std::ofstream& ofs, std::string s1, std::string s2) {
+
+	std::string word;
+
+	print_whitespaces(ifs, ofs);
+	while (ifs >> word) {
+		if (!word.compare(s1))
+			ofs << s2;
+		else
+			ofs << word;
+		print_whitespaces(ifs, ofs);
+		if (ifs.eof())
+			break;
+	}
+}
 
 int main( int ac, char *av[] )
 {
-	std::string word;
-	char		ws = 0;
-
 	if (check_nb_args(ac))
 		return 1;
 
@@ -55,16 +71,12 @@ int main( int ac, char *av[] )
 	if (s1.empty() || s2.empty())
 		return 1;
 
-	//std::ifstream	ifs = check_infile(av[1]);
 	std::ifstream	ifs(av[1]);
 
 	if (!ifs.is_open()) {
 		std::cout << "Error: could not open input file." << std::endl;
 		return 1;
 	}
-
-	if (!ifs.is_open())
-		return 1;
 
 	std::ofstream	ofs(to_upper(av[1]) + ".replace");
 
@@ -74,30 +86,8 @@ int main( int ac, char *av[] )
 		return 1;
 	}
 
-	while (ifs >> word) {
-		if (ws) {
-			if (!(ws + word).compare(s1))
-				ofs << s2;
-			else
-				ofs << ws + word;
-		}
-		else
-		{
-			if (!word.compare(s1))
-				ofs << s2;
-			else
-				ofs << word;
-		}
-		ifs.get(ws);
-		while (std::isspace(ws)) {
-			ofs << ws;
-			if (ifs.eof())
-				break;
-			ifs.get(ws);
-		}
-		if (ifs.eof())
-			break;
-	}
+	sed(ifs, ofs, s1, s2);
+
 	ifs.close();
 	ofs.close();
 	return 0;

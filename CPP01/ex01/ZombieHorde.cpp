@@ -5,9 +5,12 @@
 Zombie* zombieHorde( int N, std::string name ) {
 
 	int	i;
-    Zombie* Horde = new Zombie[N];
+    Zombie* Horde;
 
 	i = 0;
+	if (N <= 0)
+		return (0);
+	Horde = new Zombie[N];
 	while (i < N)
 	{
 		std::ostringstream oss;

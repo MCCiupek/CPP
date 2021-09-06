@@ -16,7 +16,7 @@ SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
 
 OBJS =			$(SRCS:.cpp=.o)
 
-NAME =			Karen
+NAME =			karenFilter
 
 UNAME := 		$(shell uname)
 

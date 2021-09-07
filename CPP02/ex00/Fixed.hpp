@@ -24,12 +24,10 @@ public:
 
 private:
 
-	static int	_nbBits;
+	const static int	_nbBits = NB_BITS;
 
 	int			_value;
 
 };
-
-std::ostream &	operator<<( std::ostream & o, Fixed const & Number );
 
 #endif /* __FIXED_H__ */

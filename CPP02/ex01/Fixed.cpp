@@ -1,29 +1,20 @@
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
-
-int Fixed::_nbBits = NB_BITS;
 
 Fixed::Fixed( void ) : _value(0) {
 
-	int	i;
-
-	this->_fixed = new int[_nbBits];
-	this->_fixed = {0};
 	std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
-Fixed::Fixed( int const n ) : _value(n) {
+Fixed::Fixed( int const n ) : _value(n << _nbBits) {
 
-	int	i = 0;
-
-	this->_fixed = new int[_nbBits];
-	this->_fixed = {0};
 	std::cout << "Int constructor called" << std::endl;
 	return;
 }
 
-Fixed::Fixed( int const f ) {
+Fixed::Fixed( float const f ) : _value(roundf(f * (1 << _nbBits))) {
 
 	std::cout << "Float constructor called" << std::endl;
 	return;
@@ -36,17 +27,17 @@ Fixed::Fixed( Fixed const &Number ) {
 	return;
 }
 
-Fixed & Fixed::operator= ( Fixed const &Number ) {
-
-	std::cout << "Assignation operator called" << std::endl;
-	this->_value = Number.getRawBits();
-	return *this;
-}
-
 Fixed::~Fixed( void ) {
 
 	std::cout << "Destructor called" << std::endl;
 	return;
+}
+
+Fixed & Fixed::operator= ( Fixed const &Number ) {
+
+	std::cout << "Assignation operator called" << std::endl;
+	this->_value = Number._value;
+	return *this;
 }
 
 int	Fixed::getRawBits( void ) const {
@@ -63,16 +54,16 @@ void		Fixed::setRawBits( int const raw ) {
 
 float 		Fixed::toFloat(void) const {
 
-	return this->_value;
+	return (float)(this->_value) / (1 << _nbBits);
 }
 
 int 		Fixed::toInt(void) const {
 
-	return this->_value;
+	return (int)(this->_value >> _nbBits);
 }
 
 std::ostream &	operator<<( std::ostream & o, Fixed const & Number ){
 
-	o << Number.getRawBits() << std::endl;
+	o << Number.toFloat();
 	return o;
 }

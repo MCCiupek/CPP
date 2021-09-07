@@ -1,8 +1,6 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-int Fixed::_nbBits = NB_BITS;
-
 Fixed::Fixed( void ) : _value(0) {
 
 	std::cout << "Default constructor called" << std::endl;
@@ -39,10 +37,4 @@ void		Fixed::setRawBits( int const raw ) {
 
 	this->_value = raw;
 	return;
-}
-
-std::ostream &	operator<<( std::ostream & o, Fixed const & Number ){
-
-	o << "The value of _value is: " << Number.getRawBits();
-	return o;
 }

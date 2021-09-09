@@ -5,26 +5,32 @@
 
 ClapTrap::ClapTrap( void ) : _hit_points(10), _energy_points(10), _attack_damage(0) {
 
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
+	return;
+}
+
+ClapTrap::ClapTrap( std::string name ) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
+
+	std::cout << "ClapTrap Parametric constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : _name(name), _hit_points(hit_points), _energy_points(energy_points), _attack_damage(attack_damage) {
 
-	std::cout << "Parametric constructor called" << std::endl;
+	std::cout << "ClapTrap Parametric constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( const ClapTrap &ClapTrap ) {
 
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = ClapTrap;
 	return;
 }
 
 ClapTrap::~ClapTrap( void ) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 	return;
 }
 
@@ -36,7 +42,7 @@ ClapTrap & ClapTrap::operator= (const ClapTrap &ClapTrap ) {
 	this->setHitPts(ClapTrap.getHitPts());
 	this->setEnergyPts(ClapTrap.getEnergyPts());
 	this->setAttackDamage(ClapTrap.getAttackDamage());
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "ClapTrap Assignation operator called" << std::endl;
 	return *this;
 }
 
@@ -116,4 +122,13 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		<< this->getEnergyPts() << " energy points now." 
 		<< std::endl;
 	return ;
+}
+
+std::ostream&	operator<<(std::ostream& stream, ClapTrap const& ClapTrap)
+{
+	stream << "ClapTrap " << ClapTrap.getName() << " has " 
+		<< ClapTrap.getHitPts() << " hit points, " 
+		<< ClapTrap.getEnergyPts() << " energy points and " 
+		<< ClapTrap.getAttackDamage() << " attack dammage.";
+	return (stream);
 }

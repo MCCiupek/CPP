@@ -9,13 +9,14 @@ DIR_HEADERS =	./
 DIR_SRCS =		./
 
 SRC =			main.cpp \
-				ClapTrap.cpp
+				ClapTrap.cpp \
+				ScavTrap.cpp
 
 SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
 
 OBJS =			$(SRCS:.cpp=.o)
 
-NAME =			Fixed
+NAME =			ScavTrap
 
 UNAME := 		$(shell uname)
 

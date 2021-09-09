@@ -13,6 +13,7 @@ class ClapTrap {
 public:
 
 	ClapTrap( void );									// Default constructor
+	ClapTrap( std::string name );
 	ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
 	ClapTrap( ClapTrap const & ClapTrap );				// Copy constructor
 	~ClapTrap( void );									// Destructor
@@ -43,5 +44,8 @@ private:
 	int			_attack_damage;
 
 };
+
+std::ostream&	operator<<(std::ostream& stream, ClapTrap const& ClapTrap);
+
 
 #endif /* __CLAPTRAP_H__ */

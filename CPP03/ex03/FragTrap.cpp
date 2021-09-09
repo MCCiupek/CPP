@@ -3,7 +3,7 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-FragTrap::FragTrap( void ) : ClapTrap() {
+FragTrap::FragTrap( void ) {
 
 	this->setHitPts (defHitPts);
 	this->setEnergyPts (defEnergyPts);
@@ -12,7 +12,7 @@ FragTrap::FragTrap( void ) : ClapTrap() {
 	return;
 }
 
-FragTrap::FragTrap( std::string name ) : ClapTrap(name, defHitPts, defEnergyPts, defAttackDamage) {
+FragTrap::FragTrap( std::string name ) {
 
 	this->setName (name);
 	this->setHitPts (defHitPts);
@@ -22,8 +22,7 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name, defHitPts, defEnergyPts,
 	return;
 }
 
-FragTrap::FragTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : 
-	ClapTrap(name, hit_points, energy_points, attack_damage) {
+FragTrap::FragTrap( std::string name, int hit_points, int energy_points, int attack_damage ) {
 
 	this->setName (name);
 	this->setHitPts (hit_points);
@@ -44,6 +43,23 @@ FragTrap::~FragTrap( void ) {
 
 	std::cout << "FragTrap Destructor called" << std::endl;
 	return;
+}
+
+/* GETTERS, SETTERS */
+
+int	FragTrap::getDefHitPts( void ) const {
+
+	return defHitPts;
+}
+
+int	FragTrap::getDefEnergyPts( void ) const {
+
+	return defEnergyPts;
+}
+
+int	FragTrap::getDefAttackDamage( void ) const {
+
+	return defAttackDamage;
 }
 
 /* ASSIGNATION OPERATOR */

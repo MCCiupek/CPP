@@ -11,9 +11,9 @@ int main(void) {
 
 	c = c1;
 
-	a.attack("b");
-	b.attack("c");
-	c.attack("a");
+	a.attack(b.getName());
+	b.attack(c.getName());
+	c.attack(a.getName());
 
 	b.takeDamage(a.getAttackDamage());
 	c.takeDamage(b.getAttackDamage());

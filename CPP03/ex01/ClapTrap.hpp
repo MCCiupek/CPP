@@ -43,6 +43,10 @@ private:
 	int			_energy_points;
 	int			_attack_damage;
 
+	static const int defHitPts = 100;
+	static const int defEnergyPts = 50;
+	static const int defAttackDamage = 20;
+
 };
 
 std::ostream&	operator<<(std::ostream& stream, ClapTrap const& ClapTrap);

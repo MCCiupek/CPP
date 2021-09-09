@@ -5,21 +5,29 @@
 
 ScavTrap::ScavTrap( void ) : ClapTrap() {
 
-	this->setHitPts (100);
-	this->setEnergyPts (50);
-	this->setAttackDamage (20);
+	this->setHitPts (defHitPts);
+	this->setEnergyPts (defEnergyPts);
+	this->setAttackDamage (defAttackDamage);
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, 100, 50, 20) {
+ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, defHitPts, defEnergyPts, defAttackDamage) {
 
+	this->setName (name);
+	this->setHitPts (defHitPts);
+	this->setEnergyPts (defEnergyPts);
+	this->setAttackDamage (defAttackDamage);
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	return;
 }
 
 ScavTrap::ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : ClapTrap(name, hit_points, energy_points, attack_damage) {
 
+	this->setName (name);
+	this->setHitPts (hit_points);
+	this->setEnergyPts (energy_points);
+	this->setAttackDamage (attack_damage);
 	std::cout << "ScavTrap Parametric constructor called" << std::endl;
 	return;
 }
@@ -63,6 +71,7 @@ std::ostream&	operator<<(std::ostream& stream, ScavTrap const& ScavTrap)
 	stream << "ScavTrap " << ScavTrap.getName() << " has " 
 		<< ScavTrap.getHitPts() << " hit points, " 
 		<< ScavTrap.getEnergyPts() << " energy points and " 
-		<< ScavTrap.getAttackDamage() << " attack dammage.";
+		<< ScavTrap.getAttackDamage() << " attack dammage."
+		<< std::endl;
 	return (stream);
 }

@@ -38,14 +38,14 @@ public:
 
 private:
 
+	static const int defHitPts = 10;
+	static const int defEnergyPts = 10;
+	static const int defAttackDamage = 0;
+
 	std::string _name;
 	int			_hit_points;
 	int			_energy_points;
 	int			_attack_damage;
-
-	static const int defHitPts = 100;
-	static const int defEnergyPts = 50;
-	static const int defAttackDamage = 20;
 
 };
 

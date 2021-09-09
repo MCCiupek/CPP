@@ -3,7 +3,7 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-ScavTrap::ScavTrap( void ) : ClapTrap() {
+ScavTrap::ScavTrap( void ) {
 
 	this->setHitPts (defHitPts);
 	this->setEnergyPts (defEnergyPts);
@@ -12,7 +12,7 @@ ScavTrap::ScavTrap( void ) : ClapTrap() {
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, defHitPts, defEnergyPts, defAttackDamage) {
+ScavTrap::ScavTrap( std::string name ) {
 
 	this->setName (name);
 	this->setHitPts (defHitPts);
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, defHitPts, defEnergyPts,
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : ClapTrap(name, hit_points, energy_points, attack_damage) {
+ScavTrap::ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage ) {
 
 	this->setName (name);
 	this->setHitPts (hit_points);
@@ -43,6 +43,23 @@ ScavTrap::~ScavTrap( void ) {
 
 	std::cout << "ScavTrap Destructor called" << std::endl;
 	return;
+}
+
+/* GETTERS, SETTERS */
+
+int	ScavTrap::getDefHitPts( void ) const {
+
+	return defHitPts;
+}
+
+int	ScavTrap::getDefEnergyPts( void ) const {
+
+	return defEnergyPts;
+}
+
+int	ScavTrap::getDefAttackDamage( void ) const {
+
+	return defAttackDamage;
 }
 
 /* ASSIGNATION OPERATOR */

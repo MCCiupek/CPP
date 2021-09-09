@@ -3,19 +3,30 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-ClapTrap::ClapTrap( void ) : _hit_points(10), _energy_points(10), _attack_damage(0) {
+ClapTrap::ClapTrap( void ) : 
+	_hit_points(defHitPts), 
+	_energy_points(defEnergyPts), 
+	_attack_damage(defAttackDamage) {
 
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
+ClapTrap::ClapTrap( std::string name ) : 
+	_name(name), 
+	_hit_points(defHitPts), 
+	_energy_points(defEnergyPts), 
+	_attack_damage(defAttackDamage) {
 
 	std::cout << "ClapTrap Parametric constructor called" << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : _name(name), _hit_points(hit_points), _energy_points(energy_points), _attack_damage(attack_damage) {
+ClapTrap::ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : 
+	_name(name), 
+	_hit_points(hit_points), 
+	_energy_points(energy_points), 
+	_attack_damage(attack_damage) {
 
 	std::cout << "ClapTrap Parametric constructor called" << std::endl;
 	return;
@@ -129,6 +140,7 @@ std::ostream&	operator<<(std::ostream& stream, ClapTrap const& ClapTrap)
 	stream << "ClapTrap " << ClapTrap.getName() << " has " 
 		<< ClapTrap.getHitPts() << " hit points, " 
 		<< ClapTrap.getEnergyPts() << " energy points and " 
-		<< ClapTrap.getAttackDamage() << " attack dammage.";
+		<< ClapTrap.getAttackDamage() << " attack dammage."
+		<< std::endl;
 	return (stream);
 }

@@ -20,6 +20,13 @@ public:
 	ScavTrap & operator= (const ScavTrap &ScavTrap );
 
     void guardGate( void );
+
+private:
+
+	static const int defHitPts = 100;
+	static const int defEnergyPts = 50;
+	static const int defAttackDamage = 20;
+
 };
 
 std::ostream&	operator<<(std::ostream& stream, ScavTrap const& ScavTrap);

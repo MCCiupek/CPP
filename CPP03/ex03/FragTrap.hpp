@@ -7,7 +7,7 @@
 //                             FragTrap Class                                 //
 // ************************************************************************** //
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 
 public:
 
@@ -17,9 +17,15 @@ public:
 	FragTrap( FragTrap const & FragTrap );				// Copy constructor
 	~FragTrap( void );									// Destructor
 
-	FragTrap & operator= (const FragTrap &FragTrap );
+	FragTrap & 		operator= (const FragTrap &FragTrap );
 
-    void highFivesGuys( void );
+	int 			getDefHitPts( void ) const;
+	int 			getDefEnergyPts( void ) const;
+	int 			getDefAttackDamage( void ) const;
+
+    void 			highFivesGuys( void );
+
+private:
 
 	static const int defHitPts = 100;
 	static const int defEnergyPts = 100;

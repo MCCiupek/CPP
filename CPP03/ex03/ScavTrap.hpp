@@ -7,7 +7,7 @@
 //                             ScavTrap Class                                 //
 // ************************************************************************** //
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 public:
 
@@ -17,11 +17,15 @@ public:
 	ScavTrap( ScavTrap const & ScavTrap );				// Copy constructor
 	~ScavTrap( void );									// Destructor
 
-	ScavTrap & operator= (const ScavTrap &ScavTrap );
+	ScavTrap & 		operator= (const ScavTrap &ScavTrap );
 
-    void guardGate( void );
+	int 			getDefHitPts( void ) const;
+	int 			getDefEnergyPts( void ) const;
+	int 			getDefAttackDamage( void ) const;
 
-private:
+    void 			guardGate( void );
+
+//private:
 
 	static const int defHitPts = 100;
 	static const int defEnergyPts = 50;

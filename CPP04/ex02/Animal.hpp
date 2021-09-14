@@ -22,7 +22,7 @@ public:
 	std::string		getType( void ) const;
 	void 			setType( std::string const type );
 
-	virtual void	makeSound( void ) const;
+	virtual void	makeSound( void ) const = 0;
 
 protected:
 

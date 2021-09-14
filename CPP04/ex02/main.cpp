@@ -6,6 +6,7 @@
 int main()
 {
 	const Animal* arr[100];
+	//const Animal y;
 	const Cat* j = new Cat();
 	const Dog* i = new Dog();
 

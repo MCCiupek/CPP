@@ -19,14 +19,10 @@ public:
 
 	WrongAnimal & 	operator=( WrongAnimal const & WrongAnimal );		// Copy assignment operator
 
-	void attack(std::string const & target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
 	std::string		getType( void ) const;
 	void 			setType( std::string const type );
 
-	void	makeSound( void ) const;
+	void			makeSound( void ) const;
 
 protected:
 

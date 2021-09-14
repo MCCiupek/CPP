@@ -9,16 +9,17 @@ DIR_HEADERS =	./
 DIR_SRCS =		./
 
 SRC =			main.cpp \
-				Animal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				Brain.cpp
+				AMateria.cpp \
+				Character.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				MateriaSource.cpp
 
 SRCS =			$(addprefix $(DIR_SRCS), $(SRC))
 
 OBJS =			$(SRCS:.cpp=.o)
 
-NAME =			Animal
+NAME =			a.out
 
 UNAME := 		$(shell uname)
 

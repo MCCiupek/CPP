@@ -19,10 +19,6 @@ public:
 
 	Animal & 	operator=( Animal const & Animal );		// Copy assignment operator
 
-	void attack(std::string const & target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
 	std::string		getType( void ) const;
 	void 			setType( std::string const type );
 

@@ -3,21 +3,14 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-DiamondTrap::DiamondTrap( void ) {
+DiamondTrap::DiamondTrap( void ) : ClapTrap("unnamed_clap_name", 100, 50, 30), FragTrap("unnamed"), ScavTrap("unnamed"), _name("unnamed") {
 
-	this->setHitPts (this->FragTrap::getDefHitPts());
-	this->setEnergyPts (this->ScavTrap::getDefEnergyPts());
-	this->setAttackDamage (this->FragTrap::getDefAttackDamage());
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
 	return;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name", 100, 50, 30), FragTrap(name), ScavTrap(name), _name(name) {
 
-	this->setName(name);
-	this->setHitPts (this->FragTrap::getDefHitPts());
-	this->setEnergyPts (this->ScavTrap::getDefEnergyPts());
-	this->setAttackDamage (this->FragTrap::getDefAttackDamage());
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
 	return;
 }

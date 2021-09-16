@@ -13,7 +13,6 @@ class DiamondTrap : public FragTrap, public	ScavTrap {
 
 public:
 
-	DiamondTrap( void );									// Default constructor
 	DiamondTrap( std::string name );						// Const constructor
 	DiamondTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
 	DiamondTrap( DiamondTrap const & DiamondTrap );				// Copy constructor
@@ -41,6 +40,8 @@ public:
 	void 		whoAmI();
 
 private:
+
+	DiamondTrap( void );									// Default constructor
 
 	std::string	_name;
 };

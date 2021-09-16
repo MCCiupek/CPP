@@ -3,8 +3,15 @@
 
 int main(void) {
 
-	ClapTrap a("a");
-	ClapTrap b1("b");
+	std::cout << "-------- CLAPTRAP -----------" << std::endl;
+	ClapTrap a("A");
+	std::cout << a;
+	a.attack("something");
+	a.takeDamage(2);
+	a.beRepaired(5);
+	std::cout << a;
+
+	/*ClapTrap b1("b");
 	ClapTrap c("c");
 	ClapTrap b(b1);
 	ClapTrap c1("c1");
@@ -21,7 +28,7 @@ int main(void) {
 
 	a.beRepaired(2);
 	b.beRepaired(3);
-	c.beRepaired(5);
+	c.beRepaired(5);*/
 
 	return 0;
 }

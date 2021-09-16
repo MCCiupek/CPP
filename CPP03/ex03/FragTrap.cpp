@@ -3,31 +3,21 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-FragTrap::FragTrap( void ) {
+FragTrap::FragTrap( void ) : ClapTrap("unamed", 100, 100, 30) {
 
-	this->setHitPts (defHitPts);
-	this->setEnergyPts (defEnergyPts);
-	this->setAttackDamage (defAttackDamage);
 	std::cout << "FragTrap Default constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap( std::string name ) {
+FragTrap::FragTrap( std::string name ) : ClapTrap(name, 100, 100, 30) {
 
-	this->setName (name);
-	this->setHitPts (defHitPts);
-	this->setEnergyPts (defEnergyPts);
-	this->setAttackDamage (defAttackDamage);
 	std::cout << "FragTrap Default constructor called" << std::endl;
 	return;
 }
 
-FragTrap::FragTrap( std::string name, int hit_points, int energy_points, int attack_damage ) {
+FragTrap::FragTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : 
+	ClapTrap(name, hit_points, energy_points, attack_damage) {
 
-	this->setName (name);
-	this->setHitPts (hit_points);
-	this->setEnergyPts (energy_points);
-	this->setAttackDamage (attack_damage);
 	std::cout << "FragTrap Parametric constructor called" << std::endl;
 	return;
 }
@@ -43,23 +33,6 @@ FragTrap::~FragTrap( void ) {
 
 	std::cout << "FragTrap Destructor called" << std::endl;
 	return;
-}
-
-/* GETTERS, SETTERS */
-
-int	FragTrap::getDefHitPts( void ) const {
-
-	return defHitPts;
-}
-
-int	FragTrap::getDefEnergyPts( void ) const {
-
-	return defEnergyPts;
-}
-
-int	FragTrap::getDefAttackDamage( void ) const {
-
-	return defAttackDamage;
 }
 
 /* ASSIGNATION OPERATOR */
@@ -80,6 +53,16 @@ void FragTrap::highFivesGuys( void ) {
 
 	std::cout << "FragTrap " << this->getName() 
 		<< " wants to high five!" << std::endl;
+	return ;
+}
+
+void FragTrap::attack(std::string const & target) {
+
+	this->_hit_points--;
+	std::cout << "FragTrap " << this->getName() 
+		<< " attacks " << target 
+		<< ", causing " << this->getAttackDamage() << " points of damage!" 
+		<< std::endl;
 	return ;
 }
 

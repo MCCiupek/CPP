@@ -4,9 +4,10 @@
 /* CONSTRUCTORS, DESTRUCTORS */
 
 ClapTrap::ClapTrap( void ) : 
-	_hit_points(defHitPts), 
-	_energy_points(defEnergyPts), 
-	_attack_damage(defAttackDamage) {
+	_name("unnamed"),
+	_hit_points(10), 
+	_energy_points(10), 
+	_attack_damage(0) {
 
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 	return;
@@ -14,9 +15,9 @@ ClapTrap::ClapTrap( void ) :
 
 ClapTrap::ClapTrap( std::string name ) : 
 	_name(name), 
-	_hit_points(defHitPts), 
-	_energy_points(defEnergyPts), 
-	_attack_damage(defAttackDamage) {
+	_hit_points(10), 
+	_energy_points(10), 
+	_attack_damage(0) {
 
 	std::cout << "ClapTrap Parametric constructor called" << std::endl;
 	return;
@@ -109,7 +110,7 @@ void ClapTrap::attack(std::string const & target) {
 
 	this->_hit_points--;
 	std::cout << "ClapTrap " << this->getName() 
-		<< " attack " << target 
+		<< " attacks " << target 
 		<< ", causing " << this->getAttackDamage() << " points of damage!" 
 		<< std::endl;
 	return ;

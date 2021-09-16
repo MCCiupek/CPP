@@ -4,39 +4,24 @@
 
 int main(void) {
 
-	ClapTrap a("a");
-	ClapTrap b1("b");
-	ClapTrap c("c");
-	ClapTrap b(b1);
-	ClapTrap c1("c1");
+	std::cout << "-------- CLAPTRAP -----------" << std::endl;
+	ClapTrap a("A");
+	std::cout << a;
+	a.attack("something");
+	a.takeDamage(2);
+	a.beRepaired(5);
+	std::cout << a;
 
-	c = c1;
+	std::cout << std::endl;
 
-	ScavTrap blair;
-	ScavTrap serena("Serena");
-	ScavTrap gossip_girl;
-	ScavTrap xoxo("Dan", 100, 100, 100);
-
-	gossip_girl = xoxo;
-
-	a.attack("b");
-	b.attack("c");
-	c.attack("a");
-
-	b.takeDamage(a.getAttackDamage());
-	c.takeDamage(b.getAttackDamage());
-	a.takeDamage(c.getAttackDamage());
-
-	a.beRepaired(2);
-	b.beRepaired(3);
-	c.beRepaired(5);
-	
-	blair.setName("Blair");
-	blair.guardGate();
-	serena.attack(blair.getName());
-	blair.takeDamage(serena.getAttackDamage());
-	serena.guardGate();
-	gossip_girl.guardGate();
+	std::cout << "-------- SCAVTRAP -----------" << std::endl;
+	ScavTrap b("B");
+	std::cout << b;
+	b.attack("something");
+	b.takeDamage(2);
+	b.beRepaired(5);
+	std::cout << b;
+	b.guardGate();
 
 	return 0;
 }

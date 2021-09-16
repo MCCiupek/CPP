@@ -3,31 +3,20 @@
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
-ScavTrap::ScavTrap( void ) {
+ScavTrap::ScavTrap( void ) : ClapTrap("unamed", 100, 50, 20) {
 
-	this->setHitPts (defHitPts);
-	this->setEnergyPts (defEnergyPts);
-	this->setAttackDamage (defAttackDamage);
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name ) {
+ScavTrap::ScavTrap( std::string name ) : ClapTrap(name, 100, 50, 20) {
 
-	this->setName (name);
-	this->setHitPts (defHitPts);
-	this->setEnergyPts (defEnergyPts);
-	this->setAttackDamage (defAttackDamage);
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage ) {
+ScavTrap::ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage ) : ClapTrap(name, hit_points, energy_points, attack_damage) {
 
-	this->setName (name);
-	this->setHitPts (hit_points);
-	this->setEnergyPts (energy_points);
-	this->setAttackDamage (attack_damage);
 	std::cout << "ScavTrap Parametric constructor called" << std::endl;
 	return;
 }
@@ -43,23 +32,6 @@ ScavTrap::~ScavTrap( void ) {
 
 	std::cout << "ScavTrap Destructor called" << std::endl;
 	return;
-}
-
-/* GETTERS, SETTERS */
-
-int	ScavTrap::getDefHitPts( void ) const {
-
-	return defHitPts;
-}
-
-int	ScavTrap::getDefEnergyPts( void ) const {
-
-	return defEnergyPts;
-}
-
-int	ScavTrap::getDefAttackDamage( void ) const {
-
-	return defAttackDamage;
 }
 
 /* ASSIGNATION OPERATOR */
@@ -80,6 +52,16 @@ void ScavTrap::guardGate( void ) {
 
 	std::cout << "ScavTrap " << this->getName() 
 		<< " has enterred in Gate keeper mode " << std::endl;
+	return ;
+}
+
+void ScavTrap::attack(std::string const & target) {
+
+	this->_hit_points--;
+	std::cout << "ScavTrap " << this->getName() 
+		<< " attacks " << target 
+		<< ", causing " << this->getAttackDamage() << " points of damage!" 
+		<< std::endl;
 	return ;
 }
 

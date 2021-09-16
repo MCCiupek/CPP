@@ -9,27 +9,21 @@
 
 class ScavTrap : virtual public ClapTrap {
 
-public:
+	public:
 
-	ScavTrap( void );									// Default constructor
-	ScavTrap( std::string name );						// Const constructor
-	ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
-	ScavTrap( ScavTrap const & ScavTrap );				// Copy constructor
-	~ScavTrap( void );									// Destructor
+		ScavTrap( std::string name );						// Const constructor
+		ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
+		ScavTrap( ScavTrap const & ScavTrap );				// Copy constructor
+		~ScavTrap( void );									// Destructor
 
-	ScavTrap & 		operator= (const ScavTrap &ScavTrap );
+		ScavTrap & operator= (const ScavTrap &ScavTrap );
 
-	int 			getDefHitPts( void ) const;
-	int 			getDefEnergyPts( void ) const;
-	int 			getDefAttackDamage( void ) const;
+		void guardGate( void );
+		void attack(std::string const & target);
 
-    void 			guardGate( void );
-
-//private:
-
-	static const int defHitPts = 100;
-	static const int defEnergyPts = 50;
-	static const int defAttackDamage = 20;
+	protected:
+	
+		ScavTrap( void );									// Default constructor
 
 };
 

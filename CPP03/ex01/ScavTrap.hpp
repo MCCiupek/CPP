@@ -11,7 +11,6 @@ class ScavTrap : public ClapTrap {
 
 public:
 
-	ScavTrap( void );									// Default constructor
 	ScavTrap( std::string name );						// Const constructor
 	ScavTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
 	ScavTrap( ScavTrap const & ScavTrap );				// Copy constructor
@@ -20,12 +19,11 @@ public:
 	ScavTrap & operator= (const ScavTrap &ScavTrap );
 
     void guardGate( void );
+	void attack(std::string const & target);
 
 private:
 
-	static const int defHitPts = 100;
-	static const int defEnergyPts = 50;
-	static const int defAttackDamage = 20;
+	ScavTrap( void );									// Default constructor
 
 };
 

@@ -12,7 +12,6 @@ class ClapTrap {
 
 public:
 
-	ClapTrap( void );									// Default constructor
 	ClapTrap( std::string name );
 	ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
 	ClapTrap( ClapTrap const & ClapTrap );				// Copy constructor
@@ -38,14 +37,12 @@ public:
 
 private:
 
+	ClapTrap( void );									// Default constructor
+
 	std::string _name;
 	int			_hit_points;
 	int			_energy_points;
 	int			_attack_damage;
-
-	static const int defHitPts = 100;
-	static const int defEnergyPts = 50;
-	static const int defAttackDamage = 20;
 
 };
 

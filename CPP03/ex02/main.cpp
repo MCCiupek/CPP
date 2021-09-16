@@ -5,54 +5,35 @@
 
 int main(void) {
 
-	ClapTrap a("a");
-	ClapTrap b1("b");
-	ClapTrap c("c");
-	ClapTrap b(b1);
-	ClapTrap c1("c1");
+	std::cout << "-------- CLAPTRAP -----------" << std::endl;
+	ClapTrap a("A");
+	std::cout << a;
+	a.attack("something");
+	a.takeDamage(2);
+	a.beRepaired(5);
+	std::cout << a;
 
-	c = c1;
+	std::cout << std::endl;
 
-	ScavTrap blair;
-	ScavTrap serena("Serena");
-	ScavTrap gossip_girl;
-	ScavTrap xoxo("Dan", 100, 100, 100);
+	std::cout << "-------- SCAVTRAP -----------" << std::endl;
+	ScavTrap b("B");
+	std::cout << b;
+	b.attack("something");
+	b.takeDamage(2);
+	b.beRepaired(5);
+	std::cout << b;
+	b.guardGate();
 
-	gossip_girl = xoxo;
+	std::cout << std::endl;
 
-	FragTrap ftp1;
-	FragTrap ftp2("F-TP2");
-	FragTrap ftp3;
-	FragTrap ftp4("F-TP4", 100, 100, 100);
-
-	ftp3 = ftp4;
-
-	a.attack(b.getName());
-	b.attack(c.getName());
-	c.attack(a.getName());
-
-	b.takeDamage(a.getAttackDamage());
-	c.takeDamage(b.getAttackDamage());
-	a.takeDamage(c.getAttackDamage());
-
-	a.beRepaired(2);
-	b.beRepaired(3);
+	std::cout << "-------- FRAGTRAP -----------" << std::endl;
+	FragTrap c("C");
+	std::cout << c;
+	c.attack("something");
+	c.takeDamage(2);
 	c.beRepaired(5);
-	
-	blair.setName("Blair");
-	blair.guardGate();
-	serena.attack(blair.getName());
-	blair.takeDamage(serena.getAttackDamage());
-	serena.guardGate();
-	gossip_girl.guardGate();
-
-	ftp1.setName("F-TP1");
-	ftp2.highFivesGuys();
-	ftp2.attack(ftp1.getName());
-	ftp1.takeDamage(ftp2.getAttackDamage());
-	ftp3.highFivesGuys();
-
-	std::cout << gossip_girl;
+	std::cout << c;
+	c.highFivesGuys();
 
 	return 0;
 }

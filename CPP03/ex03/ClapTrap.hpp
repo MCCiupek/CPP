@@ -12,11 +12,10 @@ class ClapTrap {
 
 public:
 
-	ClapTrap( void );									// Default constructor
 	ClapTrap( std::string name );
 	ClapTrap( std::string name, int hit_points, int energy_points, int attack_damage );						// Const constructor
 	ClapTrap( ClapTrap const & ClapTrap );				// Copy constructor
-	~ClapTrap( void );									// Destructor
+	virtual ~ClapTrap( void );							// Destructor
 
 	ClapTrap & 	operator=( ClapTrap const & ClapTrap );	// Copy assignment operator
 
@@ -36,12 +35,10 @@ public:
 	int 		getAttackDamage( void ) const;
 	void 		setAttackDamage( int const energy_points );
 
-private:
+protected:
 
-	static const int defHitPts = 10;
-	static const int defEnergyPts = 10;
-	static const int defAttackDamage = 0;
-
+	ClapTrap( void );									// Default constructor
+	
 	std::string _name;
 	int			_hit_points;
 	int			_energy_points;

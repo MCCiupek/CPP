@@ -75,6 +75,9 @@ void	CastFloat::printDouble( void ) const {
 
 std::ostream&	operator<<(std::ostream& stream, CastFloat const& CastFloat) {
 	stream << CastFloat.printChar()
+			<< CastFloat.printInt()
+			<< CastFloat.printDouble()
+			<< CastFloat.printFloat()
 }
 
 #endif /* __CAST_FLOAT_H__ */

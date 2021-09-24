@@ -22,7 +22,6 @@ Intern::Intern( const Intern &Copy ) {
 
 Intern::~Intern( void ) {
 
-	delete [] &f;
 	return;
 }
 

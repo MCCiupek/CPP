@@ -54,6 +54,7 @@ int main()
 		Form*	rrf;
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		delete rrf;
 	}
 	catch (Intern::UnknownFormException & e) {
 		std::cout << RED << "Unknown form type" << NO_COLOR << std::endl;
@@ -64,6 +65,7 @@ int main()
 		Form*	rrf;
 
 		rrf = someRandomIntern.makeForm("blablabla", "Bender");
+		delete rrf;
 	}
 	catch (Intern::UnknownFormException & e) {
 		std::cout << RED << "Unknown form type" << NO_COLOR << std::endl;

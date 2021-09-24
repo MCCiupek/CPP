@@ -2,8 +2,10 @@
 #include "Form.hpp"
 #include <exception>
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
@@ -57,11 +59,11 @@ void	ShrubberyCreationForm::setTarget( std::string const & target ) {
 bool	ShrubberyCreationForm::execute( Bureaucrat const & Bureaucrat ) const {
 
 	std::ofstream file_out;
-
+	
 	if (this->getIsSigned()) {
 		if (Bureaucrat.getGrade() > this->getExecGrade())
 			throw Form::GradeTooLowException();
-		file_out.open(this->_target + "_shrubbery", std::ios_base::out);
+		file_out.open((this->_target + "_shrubbery").c_str(), std::ios_base::out);
 		if (file_out.is_open()) {
 			file_out << TREES << std::endl;
 			file_out.close();

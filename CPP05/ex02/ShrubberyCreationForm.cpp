@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cstring>
+#include <cstdlib>
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
@@ -57,11 +59,12 @@ void	ShrubberyCreationForm::setTarget( std::string const & target ) {
 bool	ShrubberyCreationForm::execute( Bureaucrat const & Bureaucrat ) const {
 
 	std::ofstream file_out;
+	const char *filename = (this->_target + "_shrubbery").c_str();
 
 	if (this->getIsSigned()) {
 		if (Bureaucrat.getGrade() > this->getExecGrade())
 			throw Form::GradeTooLowException();
-		file_out.open(this->_target + "_shrubbery", std::ios_base::out);
+		file_out.open(filename, std::ios_base::out);
 		if (file_out.is_open()) {
 			file_out << TREES << std::endl;
 			file_out.close();

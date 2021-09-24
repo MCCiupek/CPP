@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Brain.hpp"
+#include <cstdlib>
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
@@ -55,7 +56,7 @@ void		Brain::setIdeas( std::string ideas[100] ) {
 
 std::string Brain::getIdea(void) const
 {
-	return(_ideas[rand() % 100]);
+	return(_ideas[std::rand() % 100]);
 }
 
 std::ostream&	operator<<(std::ostream& stream, Brain const& Brain)

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Brain.hpp"
+#include <cstdlib>
 
 /* CONSTRUCTORS, DESTRUCTORS */
 

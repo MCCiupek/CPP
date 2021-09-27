@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
-# include <exception>
+#include <exception>
 #include <cstdlib>
 #include <time.h>
 #include <algorithm>
@@ -20,7 +20,7 @@ void	test_max_min_int ( void ) ;
 
 int main ( void ) {
 
-	std::srand(unsigned(std::time(NULL)));
+	//std::srand(unsigned(std::time(NULL)));
 	vector<int> vec(500000);
     generate(vec.begin(), vec.end(), rand);
 	//generate(begin(vec), end(vec), rand);

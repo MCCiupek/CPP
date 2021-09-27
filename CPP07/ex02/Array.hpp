@@ -14,7 +14,7 @@ class Array {
 
 public:
 
-	Array( void ) : _array(new T), _size(0) {};
+	Array( void ) : _array(new T[0]), _size(0) {};
 	Array( unsigned int n ) : _array(new T[n]), _size(n) {};
 	Array( Array const & Copy ) { this->_array = Copy->_array; };
 	virtual ~Array( void ) { delete [] this->_array; };
@@ -51,11 +51,16 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 template<typename T>
 Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
 
-	this->_size = Copy.size();
-	this->_array = new T[Copy.size()];
+	if ( *this != Copy )
+	{
+		if (this->_array)
+			delete [] this->_array;
+		this->_size = Copy.size();
+		this->_array = new T[Copy.size()];
 
-	for (unsigned int i = 0; i < this->size(); i++ )
-		this->_array[i] = Copy[i];
+		for (unsigned int i = 0; i < this->size(); i++ )
+			this->_array[i] = Copy[i];
+	}
 	return *this;
 }
 

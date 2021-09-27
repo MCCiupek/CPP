@@ -51,16 +51,12 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 template<typename T>
 Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
 
-	if ( *this != Copy )
-	{
-		if (this->_array)
-			delete [] this->_array;
-		this->_size = Copy.size();
-		this->_array = new T[Copy.size()];
+	delete [] this->_array;
+	this->_size = Copy.size();
+	this->_array = new T[Copy.size()];
 
-		for (unsigned int i = 0; i < this->size(); i++ )
-			this->_array[i] = Copy[i];
-	}
+	for (unsigned int i = 0; i < this->size(); i++ )
+		this->_array[i] = Copy[i];
 	return *this;
 }
 

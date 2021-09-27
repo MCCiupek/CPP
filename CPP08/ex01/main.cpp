@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <cstdlib>
 #include <random>
 #include <ctime>
 #include "Span.hpp"

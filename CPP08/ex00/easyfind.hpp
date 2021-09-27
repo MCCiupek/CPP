@@ -6,8 +6,7 @@
 
 class ElemNotFound : public std::exception {
 	public:
-		const char * what() const throw()
-		{
+		const char * what() const throw() {
 			return "Element not found in container";
 		}
 };

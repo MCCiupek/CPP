@@ -20,9 +20,10 @@ public:
 	virtual ~Array( void ) { delete [] this->_array; };
 
 	Array & 		operator=( Array & Copy );
-	T				operator[]( unsigned int i );
+	T &				operator[]( unsigned int i );
+	T const &		operator[]( unsigned int i ) const;
 
-	unsigned int	size( void );
+	unsigned int	size( void ) const ;
 
 	void			setArray( unsigned int i, T elem );
 
@@ -51,17 +52,26 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 template<typename T>
 Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
 
+	if (this == Copy)
+		return (*this);
 	delete [] this->_array;
 	this->_size = Copy.size();
 	this->_array = new T[Copy.size()];
-
 	for (unsigned int i = 0; i < this->size(); i++ )
 		this->_array[i] = Copy[i];
 	return *this;
 }
 
 template<typename T>
-T			Array<T>::operator[]( unsigned int i ) {
+T &			Array<T>::operator[]( unsigned int i ) {
+
+	if (i >= this->size())
+		throw Array<T>::OutOfLimits();
+	return this->_array[i];
+}
+
+template<typename T>
+T const &	Array<T>::operator[]( unsigned int i ) const {
 
 	if (i >= this->size())
 		throw Array<T>::OutOfLimits();
@@ -71,7 +81,7 @@ T			Array<T>::operator[]( unsigned int i ) {
 /* METHODS */
 
 template<typename T>
-unsigned int	Array<T>::size( void ) {
+unsigned int	Array<T>::size( void ) const {
 
 	return this->_size;
 }

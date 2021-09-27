@@ -42,8 +42,6 @@ int test_with_a_stack()
 
 	cout << "distance: " << std::distance(it, ite) << endl;
 
-	cout << "The last element is " << *std::prev(mstack.end()) << '\n';
-
 	while (it != ite)
 	{
 		cout << "elem: " << *it << endl;
@@ -84,8 +82,6 @@ int test_with_a_list()
 	std::advance (it, 2);
 
 	cout << "distance: " << std::distance(it, ite) << endl;
-
-	cout << "The last element is " << *std::prev(mlist.end()) << '\n';
 
 	while (it != ite)
 	{

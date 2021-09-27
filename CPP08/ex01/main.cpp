@@ -19,7 +19,7 @@ void	test_max_min_int ( void ) ;
 
 int main ( void ) {
 
-	std::srand(unsigned(std::time(nullptr)));
+	std::srand(unsigned(std::time(NULL)));
 	vector<int> vec(500000);
     generate(begin(vec), end(vec), rand);
 

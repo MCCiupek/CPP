@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <limits.h>
 #include "Span.hpp"
 
 using std::cout;

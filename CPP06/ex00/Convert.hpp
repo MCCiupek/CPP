@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <stdlib.h>
 
 # define MY_INT_MIN -2147483648
 # define MY_INT_MAX 2147483647

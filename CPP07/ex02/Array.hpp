@@ -14,10 +14,10 @@ class Array {
 
 public:
 
-	Array( void ) : _array(new T[0]), _size(0) {};
+	Array( void ) : _array(new T), _size(0) {};
 	Array( unsigned int n ) : _array(new T[n]), _size(n) {};
 	Array( Array const & Copy ) { this->_array = Copy->_array; };
-	virtual ~Array( void ) { delete this->_array; };
+	virtual ~Array( void ) { delete [] this->_array; };
 
 	Array & 		operator=( Array & Copy );
 	T				operator[]( unsigned int i );

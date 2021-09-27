@@ -52,7 +52,7 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 template<typename T>
 Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
 
-	if (this == Copy)
+	if (this == *Copy)
 		return (*this);
 	delete [] this->_array;
 	this->_size = Copy.size();

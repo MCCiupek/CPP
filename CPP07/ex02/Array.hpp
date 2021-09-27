@@ -20,8 +20,7 @@ public:
 	virtual ~Array( void ) { delete [] this->_array; };
 
 	Array & 		operator=( Array & Copy ) {
-		if (this == *Copy)
-			return (*this);
+
 		delete [] this->_array;
 		this->_size = Copy.size();
 		this->_array = new T[Copy.size()];

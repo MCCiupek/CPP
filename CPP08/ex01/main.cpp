@@ -3,6 +3,7 @@
 #include <deque>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 #include "Span.hpp"
 
 using std::cout;

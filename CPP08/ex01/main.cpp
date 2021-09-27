@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+# include <exception>
 #include <cstdlib>
-#include <ctime>
+#include <time.h>
 #include <algorithm>
 #include "Span.hpp"
 

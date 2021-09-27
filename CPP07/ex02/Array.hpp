@@ -19,15 +19,7 @@ public:
 	Array( Array const & Copy ) { this->_array = Copy->_array; };
 	virtual ~Array( void ) { delete [] this->_array; };
 
-	Array & 		operator=( Array & Copy ) {
-
-		delete [] this->_array;
-		this->_size = Copy.size();
-		this->_array = new T[Copy.size()];
-		for (unsigned int i = 0; i < this->size(); i++ )
-			this->_array[i] = Copy[i];
-		return *this;
-	};
+	Array & 		operator=( Array & Copy );
 	T &				operator[]( unsigned int i );
 	T const &		operator[]( unsigned int i ) const;
 
@@ -56,9 +48,9 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 }
 
 /* OPERATORS */
-/*
+
 template<typename T>
-Array & 	Array::operator=( Array & Copy ) {
+Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
 
 	if (*this == Copy)
 		return (*this);
@@ -68,7 +60,7 @@ Array & 	Array::operator=( Array & Copy ) {
 	for (unsigned int i = 0; i < this->size(); i++ )
 		this->_array[i] = Copy[i];
 	return *this;
-}*/
+}
 
 template<typename T>
 T &			Array<T>::operator[]( unsigned int i ) {

@@ -16,8 +16,8 @@ public:
 	Human( std::string name, int age ) : _name(name), _age(age) {};
 	~Human( void ) {};
 
-	bool 		operator>(Human const& other) const { return _age > other._age; };
-    bool 		operator<(Human const& other) const { return _age < other._age; };
+	//bool 		operator>(Human const& other) const { return _age > other._age; };
+    //bool 		operator<(Human const& other) const { return _age < other._age; };
 
 	std::string	getName( void ) const { return this->_name; };
 	void		setName( std::string name ) { this->_name = name; };

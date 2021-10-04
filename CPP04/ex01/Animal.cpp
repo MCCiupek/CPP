@@ -60,6 +60,6 @@ void		Animal::makeSound( void ) const {
 
 std::ostream&	operator<<(std::ostream& stream, Animal const& Animal)
 {
-	stream << "Animal: " << Animal.getType() << std::endl;
+	stream << "I'm a " << Animal.getType() << std::endl;
 	return (stream);
 }

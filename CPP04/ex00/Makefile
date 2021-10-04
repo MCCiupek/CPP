@@ -58,7 +58,7 @@ git:			fclean
 
 re:				fclean all
 
-.PHONY:			all, clean, fclean, re, norme, git, bonus
+.PHONY:			all, clean, fclean, re, norme, git, bonus, echoCL, echoOK, echoCS, echoCLEAN, echoFCLEAN
 
 .SILENT:
 

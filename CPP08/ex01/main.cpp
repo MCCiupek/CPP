@@ -3,7 +3,6 @@
 #include <deque>
 #include <exception>
 #include <cstdlib>
-//#include <time.h>
 #include <algorithm>
 #include "Span.hpp"
 
@@ -20,10 +19,8 @@ void	test_max_min_int ( void ) ;
 
 int main ( void ) {
 
-	//std::srand(unsigned(std::time(NULL)));
 	vector<int> vec(500000);
     generate(vec.begin(), vec.end(), rand);
-	//generate(begin(vec), end(vec), rand);
 
 	cout << "----- Subject test -----" << endl;
 	try {
@@ -71,7 +68,6 @@ int main ( void ) {
 	
 	cout << "----- 100 test -----" << endl;
 	
-	//random_shuffle(begin(vec), end(vec));
 	random_shuffle(vec.begin(), vec.end());
 	try {
 		test_N(vec, 100);
@@ -85,7 +81,6 @@ int main ( void ) {
 
 	cout << "----- 10000 test -----" << endl;
 	
-	//random_shuffle(begin(vec), end(vec));
 	random_shuffle(vec.begin(), vec.end());
 	try {
 		test_N(vec, 10000);
@@ -99,7 +94,6 @@ int main ( void ) {
 
 	cout << "----- 500000 test -----" << endl;
 	
-	//random_shuffle(begin(vec), end(vec));
 	random_shuffle(vec.begin(), vec.end());
 	try {
 		test_N(vec, 500000);

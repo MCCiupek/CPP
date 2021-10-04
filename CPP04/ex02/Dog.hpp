@@ -18,11 +18,14 @@ public:
 
 	Dog & 		operator= (const Dog &Dog );
 
+	void 		setBrain( Brain & brain );
+	Brain *		getBrain( void ) const;
+
 	void		makeSound( void ) const;
 
 private:
 
-	Brain *		_brain;
+	Brain * 	_brain;
 
 };
 

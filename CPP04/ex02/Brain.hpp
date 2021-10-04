@@ -19,14 +19,15 @@ public:
 
 	Brain & 		operator=( Brain const & Brain );	// Copy assignment operator
 
-	std::string*	getIdeas( void ) const;
-	void 			setIdeas( std::string ideas[100] );
+	std::string const*	getIdeas( void ) const;
+	void 			setIdeas( void );
+	void 			setIdeas( std::string const ideas[100] );
 
 	std::string		getIdea(void) const;
 
 protected:
 
-	std::string*	_ideas;
+	std::string		_ideas[100];
 
 };
 

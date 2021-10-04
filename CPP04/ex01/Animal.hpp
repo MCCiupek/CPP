@@ -30,7 +30,7 @@ protected:
 
 };
 
-std::ostream&		operator<<(std::ostream& stream, Animal const& Animal);
+//std::ostream&		operator<<(std::ostream& stream, Animal const& Animal);
 
 
 #endif /* __ANIMAL_H__ */

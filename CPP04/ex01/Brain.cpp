@@ -1,18 +1,20 @@
 #include <iostream>
 #include "Brain.hpp"
 #include <cstdlib>
+#include <fstream>
 
 /* CONSTRUCTORS, DESTRUCTORS */
 
 Brain::Brain( void ) {
 
 	std::cout << "Brain Default constructor called" << std::endl;
+	setIdeas();
 	return;
 }
 
 Brain::Brain( std::string ideas[100] ) {
 
-    this->_ideas = ideas;
+    setIdeas(ideas);
 	std::cout << "Brain Parametric constructor called" << std::endl;
 	return;
 }
@@ -34,37 +36,51 @@ Brain::~Brain( void ) {
 
 Brain & Brain::operator= (const Brain &Brain ) {
 
-	this->setIdeas(Brain.getIdeas());
-	std::cout << "Brain Assignation operator called" << std::endl;
+	if (this != &Brain) {
+		setIdeas(Brain.getIdeas());
+		std::cout << "Brain Assignation operator called" << std::endl;
+	}
 	return *this;
 }
 
 /* GETTERS, SETTERS */
 
-std::string*	Brain::getIdeas( void ) const {
+std::string const *	Brain::getIdeas( void ) const {
 
-	return (this->_ideas);
+	return (&this->_ideas[0]);
 }
 
-void		Brain::setIdeas( std::string ideas[100] ) {
+void		Brain::setIdeas( void ) {
 
-	this->_ideas = ideas;
+	std::string idea;
+	std::ifstream input;
+    input.open("ideas.txt");
+
+	int i = 0;
+	while (std::getline(input, idea)) {
+		_ideas[i++] = idea;
+	}
+	input.close();
+	return;
+}
+
+void		Brain::setIdeas( std::string const ideas[100] ) {
+
+	for (int i = 0; i < 100; i++) {
+		_ideas[i] = ideas[i];
+	}
 	return;
 }
 
 /* PUBLIC METHODS */
 
-std::string Brain::getIdea(void) const
+std::string  Brain::getIdea(void) const
 {
 	return(_ideas[std::rand() % 100]);
 }
 
 std::ostream&	operator<<(std::ostream& stream, Brain const& Brain)
 {
-    std::string* ideas;
-
-    ideas = Brain.getIdeas();
-    for (int i = 0; i < 100; i++)
-	    stream << ideas[i] << std::endl;
-	return (stream);
+	stream << Brain.getIdea() << std::endl;
+	return stream;
 }

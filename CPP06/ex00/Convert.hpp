@@ -50,7 +50,7 @@ class Convert {
 		void	setType( void );
 
 		string		_str;
-		float		_input;
+		double		_input;
 		int			_type;
 
 };

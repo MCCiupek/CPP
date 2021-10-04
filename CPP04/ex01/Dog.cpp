@@ -12,8 +12,6 @@ Dog::Dog( void ) : Animal("Dog") {
 
 Dog::Dog( const Dog &Dog ) {
 
-	//this->_brain = new Brain();
-	//*(this->_brain) = *(Dog._brain);
 	std::cout << "Dog Copy constructor called" << std::endl;
 	*this = Dog;
 	return;
@@ -33,10 +31,21 @@ Dog & Dog::operator= (const Dog &Dog ) {
 	std::cout << "Dog Assignation operator called" << std::endl;
 	if (this != &Dog)
 	{
+		delete this->_brain;
 		this->_type = Dog.getType();
 		this->_brain = new Brain(*Dog._brain);
 	}
 	return *this;
+}
+
+Brain *		Dog::getBrain( void ) const {
+
+	return this->_brain;
+}
+
+void 		Dog::setBrain( Brain & brain ) {
+
+	this->_brain = &brain;
 }
 
 /* PUBLIC METHODS */
@@ -49,7 +58,7 @@ void		Dog::makeSound( void ) const {
 
 std::ostream&	operator<<(std::ostream& stream, Dog const& Dog)
 {
-	(void)Dog;
-	stream << "I'm a dog." << std::endl;
+	Dog.makeSound();
+	stream << "I'm a dog and I'm thinking: " << Dog.getBrain()->getIdea() << std::endl;
 	return (stream);
 }

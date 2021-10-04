@@ -18,11 +18,14 @@ public:
 
 	Cat & 		operator= (const Cat &Cat );
 
+	void 		setBrain( Brain & brain );
+	Brain *		getBrain( void ) const;
+
 	void		makeSound( void ) const;
 
 private:
 
-	Brain *		_brain;
+	Brain * 	_brain;
 
 };
 

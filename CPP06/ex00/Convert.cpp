@@ -1,4 +1,5 @@
 #include "Convert.hpp"
+#include <limits>
 
 /* UTILS */
 
@@ -113,22 +114,24 @@ void	Convert::printInt( ostream& stream ) const {
 
 void	Convert::printDouble( ostream& stream ) const {
 
-	if (_type > DBL)
+	if (_type > DBL || _input < -std::numeric_limits<double>::max() - 1 || _input > std::numeric_limits<double>::max())
 		stream << "double: impossible" << endl;
 	else if (_type == CHAR1)
 		stream << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(this->_str[0]) << endl;
+	else if (_input >= 1e+06)
+		stream << "double: " << std::scientific << std::setprecision(1) << static_cast<double>(this->_input) << endl;
 	else
-		stream << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(this->_input) << endl;
+		stream << "double: " << std::fixed << std::setprecision(1) << this->_input << endl;
 }
 
 void	Convert::printFloat( ostream& stream ) const {
 
-	if (_type > FLOAT)
+	if (_type > FLOAT || _input < -std::numeric_limits<float>::max() - 1 || _input > std::numeric_limits<float>::max())
 		stream << "float: impossible" << endl;
 	else if (_type == CHAR1)
 		stream << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(this->_str[0]) << "f" << endl;
 	else
-		stream << "float: " << std::fixed << std::setprecision(1) << this->_input << "f" << endl;
+		stream << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(this->_input) << "f" << endl;
 }
 
 /* OPERATOR OVERLOAD */

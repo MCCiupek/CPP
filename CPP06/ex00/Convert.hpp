@@ -23,7 +23,7 @@ using std::isdigit;
 //                                Convert Class                               //
 // ************************************************************************** //
 
-enum TYPE { CHAR1, CHAR2, CHAR3, INT, DBL, FLOAT, NA };
+enum TYPE { CHAR1, CHAR2, CHAR3, INT, FLOAT, DBL, NA };
 
 class Convert {
 
@@ -35,9 +35,6 @@ class Convert {
 		~Convert() {};
 
 		Convert &	operator = ( const Convert & toCopy ) { this->_input = toCopy._input; return *this; };
-
-		operator int() { return static_cast<int>(this->_input); }
-		operator double() { return static_cast<double>(this->_input); }
 
 		void	printFloat( ostream& stream ) const;
 		void	printChar( ostream& stream ) const;

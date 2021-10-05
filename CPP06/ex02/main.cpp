@@ -2,9 +2,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-using std::cout;
-using std::endl;
-
 Base * generate( void ) {
 
 	switch ( rand() % 3 )
@@ -21,42 +18,42 @@ Base * generate( void ) {
 void identify( Base * p ) {
 
 	if (dynamic_cast<A*>(p))
-		cout << "A" << endl;
+		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		cout << "B" << endl;
+		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		cout << "C" << endl;
+		std::cout << "C" << std::endl;
 	else
-		cout << "Type can't be identified" << endl;
+		std::cout << "Type can't be identified" << std::endl;
 }
 
 void identify( Base & p ) {
 
 	try { 
 		Base & res = dynamic_cast<A&>(p); 
-		cout << "A" << endl;
+		std::cout << "A" << std::endl;
 		(void)res;
 		return ;
 	}
-	catch ( std::bad_cast &bc ) { }
+	catch ( std::exception &e ) { (void)e; }
 
 	try { 
 		Base & res = dynamic_cast<B&>(p); 
-		cout << "B" << endl;
+		std::cout << "B" << std::endl;
 		(void)res;
 		return ;
 	}
-	catch ( std::bad_cast &bc ) { }
+	catch ( std::exception &e ) { (void)e; }
 
 	try { 
 		Base & res = dynamic_cast<C&>(p); 
-		cout << "C" << endl;
+		std::cout << "C" << std::endl;
 		(void)res;
 		return ;
 	}
-	catch ( std::bad_cast &bc ) { }
+	catch ( std::exception &e ) { (void)e; }
 
-	cout << "Type can't be identified" << endl;
+	std::cout << "Type can't be identified" << std::endl;
 }
 
 void generate_and_identify( void )
@@ -73,9 +70,28 @@ void generate_and_identify( void )
 	delete ptr;
 }
 
+void identify_wrong_class( void )
+{
+	Base * wrongPtr = new D;
+	Base & wrongRef = *wrongPtr;
+
+	std::cout << "Wrong Pointer: ";
+	identify(wrongPtr);
+
+	std::cout << "Wrong Reference: ";
+	identify(wrongRef);
+
+	delete wrongPtr;
+}
+
 int main()
 {
+	srand(time(NULL));
+	
 	for (int i = 0; i < 10; i++)
 		generate_and_identify();
+	
+	identify_wrong_class();
+
 	return 0;
 }

@@ -75,15 +75,21 @@ void	Convert::setType( void ) {
 		_type = NA;
 		return ;
 	}
-	if (_str.find('f') != _str.npos)
-		_type = FLOAT;
-	if (is_inf_or_nan(_str) || _str.find('f') == _str.npos)
+	_type = DBL;
+	if (!is_inf_or_nan(_str) && (_input < -std::numeric_limits<double>::max() - 1 || _input > std::numeric_limits<double>::max()))
+	{
+		_type = NA;
+		return ;
+	}
+	if (!is_inf_or_nan(_str) && (_input < -std::numeric_limits<float>::max() - 1 || _input > std::numeric_limits<float>::max()))
 		_type = DBL;
+	else
+		_type = FLOAT;
 	if (_input >= MY_INT_MIN && _input <= MY_INT_MAX)
 		_type = INT;
 	if (_input >= MY_CHAR_MIN && _input <= MY_CHAR_MAX)
 		_type = CHAR3;
-	if (_input >= PRINT_CHAR_MIN && _input <= PRINT_CHAR_MAX)
+	if (_input >= PRINT_CHAR_MIN && _input < MY_CHAR_MAX)
 		_type = CHAR2;
 }
 
@@ -114,11 +120,11 @@ void	Convert::printInt( ostream& stream ) const {
 
 void	Convert::printDouble( ostream& stream ) const {
 
-	if (_type > DBL || _input < -std::numeric_limits<double>::max() - 1 || _input > std::numeric_limits<double>::max())
+	if (_type > DBL)
 		stream << "double: impossible" << endl;
 	else if (_type == CHAR1)
 		stream << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(this->_str[0]) << endl;
-	else if (_input >= 1e+06)
+	else if (_input >= 1e+06 || _input <= -1e+06)
 		stream << "double: " << std::scientific << std::setprecision(1) << static_cast<double>(this->_input) << endl;
 	else
 		stream << "double: " << std::fixed << std::setprecision(1) << this->_input << endl;
@@ -126,7 +132,7 @@ void	Convert::printDouble( ostream& stream ) const {
 
 void	Convert::printFloat( ostream& stream ) const {
 
-	if (_type > FLOAT || _input < -std::numeric_limits<float>::max() - 1 || _input > std::numeric_limits<float>::max())
+	if (_type > FLOAT)
 		stream << "float: impossible" << endl;
 	else if (_type == CHAR1)
 		stream << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(this->_str[0]) << "f" << endl;

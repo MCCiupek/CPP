@@ -23,12 +23,12 @@ Grade : 80/100
 ## Day03 : Inheritance
 Ce module est conçu pour vous aider à comprendre l'héritage en CPP.
 
-Grade : /100
+Grade : 100/100
 
 ## Day04 : Subtype polymorphism, abstract classes, interfaces
 Ce module est conçu pour vous aider à comprendre le polymorphisme de sous-type, les classes abstraites et les interfaces dans CPP.
 
-Grade : /100
+Grade : 100/100
 
 ## Day05 : Répétition et Exceptions
 Ce module est conçu pour vous aider à comprendre les fonctions Try/Catch et les exceptions en CPP.

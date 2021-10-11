@@ -16,7 +16,12 @@ public:
 
 	Array( void ) : _array(new T[0]), _size(0) {};
 	Array( unsigned int n ) : _array(new T[n]), _size(n) {};
-	Array( Array const & Copy ) { *this = Copy; };
+	Array( Array const & Copy ) {	
+		this->_size = Copy.size();
+		this->_array = new T[Copy.size()];
+		for (unsigned int i = 0; i < this->size(); i++ )
+			this->_array[i] = Copy[i];
+	};
 	virtual ~Array( void ) { delete [] this->_array; };
 
 	Array & 		operator=( Array const & Copy );
@@ -29,11 +34,7 @@ public:
 
 	class 			OutOfLimits : public std::exception { 
 		public:
-			const char * what() const throw() {
-				return "Index is out of limits";
-		}
-};
-
+			const char * what() const throw() { return "Index is out of limits"; } };
 
 private:
 
@@ -58,11 +59,14 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 template<typename T>
 Array<T> & 	Array<T>::operator=( Array<T> const & Copy ) {
 
-	delete [] this->_array;
-	this->_size = Copy.size();
-	this->_array = new T[Copy.size()];
-	for (unsigned int i = 0; i < this->size(); i++ )
-		this->_array[i] = Copy[i];
+	if (this != &Copy)
+	{
+		delete [] this->_array;
+		this->_size = Copy.size();
+		this->_array = new T[Copy.size()];
+		for (unsigned int i = 0; i < this->size(); i++ )
+			this->_array[i] = Copy[i];
+	}
 	return *this;
 }
 

@@ -16,10 +16,10 @@ public:
 
 	Array( void ) : _array(new T[0]), _size(0) {};
 	Array( unsigned int n ) : _array(new T[n]), _size(n) {};
-	Array( Array const & Copy ) { this->_array = Copy->_array; };
+	Array( Array const & Copy ) { *this = Copy; };
 	virtual ~Array( void ) { delete [] this->_array; };
 
-	Array & 		operator=( Array & Copy );
+	Array & 		operator=( Array const & Copy );
 	T &				operator[]( unsigned int i );
 	T const &		operator[]( unsigned int i ) const;
 
@@ -27,7 +27,13 @@ public:
 
 	void			setArray( unsigned int i, T elem );
 
-	class 			OutOfLimits : public std::exception {};
+	class 			OutOfLimits : public std::exception { 
+		public:
+			const char * what() const throw() {
+				return "Index is out of limits";
+		}
+};
+
 
 private:
 
@@ -50,7 +56,7 @@ void			Array<T>::setArray( unsigned int i, T elem ) {
 /* OPERATORS */
 
 template<typename T>
-Array<T> & 	Array<T>::operator=( Array<T> & Copy ) {
+Array<T> & 	Array<T>::operator=( Array<T> const & Copy ) {
 
 	delete [] this->_array;
 	this->_size = Copy.size();

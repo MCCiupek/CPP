@@ -38,7 +38,7 @@ Grade : 100/100
 ## Day06 : C++ Casts
 Ce module est conçu pour vous aider à comprendre les différents cast en CPP.
 
-Grade : /100
+Grade : 100/100
 
 ## Day07 : C++ Templates
 Ce module est conçu pour vous aider à comprendre les templates en CPP.

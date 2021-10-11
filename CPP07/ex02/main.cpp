@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 #include "Human.hpp"
+#include <cstdlib>
 
 using std::string;
 using std::cout;

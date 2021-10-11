@@ -33,7 +33,7 @@ Grade : 100/100
 ## Day05 : Répétition et Exceptions
 Ce module est conçu pour vous aider à comprendre les fonctions Try/Catch et les exceptions en CPP.
 
-Grade : /100
+Grade : 100/100
 
 ## Day06 : C++ Casts
 Ce module est conçu pour vous aider à comprendre les différents cast en CPP.

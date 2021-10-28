@@ -1,5 +1,7 @@
 # Piscine C++
 
+![image](https://user-images.githubusercontent.com/51337012/139267210-d953e47e-6ebf-47fb-a57a-b9c07b0f0ed0.png)
+
 ## Skills:
 * Imperative programming
 * Rigor
@@ -43,9 +45,9 @@ Grade : 100/100
 ## Day07 : C++ Templates
 Ce module est conçu pour vous aider à comprendre les templates en CPP.
 
-Grade : /100
+Grade : 100/100
 
 ## Day08 : Templated containers, iterators, algorithms
 Ce module est conçu pour vous aider à comprendre les 'templates containers', les itérateurs et 'algorithms' en CPP.
 
-Grade : /100
+Grade : 100/100
